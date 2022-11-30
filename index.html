@@ -9,15 +9,17 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
-<body>
+<body onload="render();">
     <div id="content">
         <h1>Notizblock</h1>
         <div id="todo">
-            <input type="text" placeholder="Notiz..." id="todoInput">
-            <button>+</button>
+            <form>
+                <input type="text" placeholder="Titel" id="title">
+                <textarea name="note" placeholder="Notiz..." id="note"></textarea>
+            </form>
+            <button onclick="addNote()">+</button>
         </div>
         <div id="list">
-
         </div>
     </div>
 </body>

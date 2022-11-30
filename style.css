@@ -24,39 +24,143 @@ h1{
 
 
 #todo{
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     /* box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.32); */
     filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.25));
+    background-color: var(--gray);
+    border-radius: 10px;
+}
+
+#todo *{
+    background-color: transparent;
+    border: none;
+}
+
+#todo *:focus{
+    outline: none;
 }
 
 #todo button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: var(--dark-gray);
+    background-color: var(--teal);
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+
+#todo form{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+#todo:focus{
+    outline: 1px solid var(--teal);
+}
+
+#todo input{
+    padding: 10px;
+    font-size: 16px;
+    color: var(--white);
+    border-bottom: 1px solid var(--dark-gray);
+}
+
+#todo textarea{
+    position: relative;
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--white);
+    height: 75px;
+}
+
+#todo textarea::placeholder{
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+
+
+/* LIST ITEMS */
+
+#list{
+    padding: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container{
+    position: relative;
+    max-width: 500px;
+    min-width: 100px;
+    height: fit-content;
+    background-color: var(--gray);
+    padding: 20px;
+    padding-bottom: 30px !important;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+h2{
+    margin-top: 0;
+    overflow-wrap: break-word;
+    /* cursor: default; */
+}
+
+#list span{
+    overflow-wrap: break-word;
+    /* cursor: default; */
+}
+
+.buttons{
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.buttons button{
     background-color: var(--teal);
     color: var(--dark-gray);
-    cursor: pointer;
-    height: 52px;
-    width: 52px;
-    padding: 0;
     border: none;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    font-size: 28px; /* todo: change plus icon to svg */
+    height: 20px;
 }
 
-#todoInput{
-    background-color: var(--gray);
-    color: var(--white);
-    font-size: 16px;
-    padding-left: 5px;
-    border: none;
+.buttons button:first-child{
     border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    width: 500px;
-    height: 50px;
 }
 
-#todoInput:focus{
-    outline: 1px solid var(--teal);
-    height: 48px;
+.buttons button:last-child{
+    border-bottom-right-radius: 10px;
+}
+
+.buttons button:last-child:hover{
+    background-color: #f24b4b;
+}
+
+[contenteditable]{
+    outline: none;  
+}
+
+@media (max-width: 540px){
+    #todo form{
+        width: 350px;
+    }
+}
+
+@media (max-width: 380px){
+    #todo form{
+        width: 250px;
+    }
 }
