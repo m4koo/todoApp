@@ -79,7 +79,7 @@ function stopEdit(i) {
     const title = parent.querySelector('h2');
     const note = parent.querySelector('span');
     
-    // changeStopButton(i)
+    updateText(i, title, note);
     changeButton(i, 'var(--teal)', 'Edit',  'edit') //changes button to edit
     if (title){
         title.contentEditable = "false";
@@ -94,6 +94,13 @@ function changeButton(i, color, btnText, btnFunc){ // switch between edit and st
     button.innerHTML = `${btnText}`
     button.setAttribute("onclick",  `${btnFunc}(${i})`)
 } 
+
+
+function updateText(i, title, note) {
+    titles[i] = title.textContent;
+    notes[i] = note.textContent;
+    save();
+}
 
 
 // LOCAL STORAGE 
@@ -115,19 +122,3 @@ function load(){
         notes = JSON.parse(getNotes);
     }
 }
-
-
-
-// function changeStopButton(i) {
-//     let button = document.getElementById(`btn${i}`);
-//     button.style.backgroundColor = 'var(--teal)';
-//     button.innerHTML="Edit";
-//     button.setAttribute("onclick", `edit(${i})`);
-// }
-
-// function changeEditButton(i) {
-//     let button = document.getElementById(`btn${i}`);
-//     button.style.backgroundColor = '#f24b4b'
-//     button.innerHTML="Stop";
-//     button.setAttribute("onclick", `stopEdit(${i})`);
-// }

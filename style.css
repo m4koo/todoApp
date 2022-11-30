@@ -22,6 +22,10 @@ h1{
     font-size: 48px;
 }
 
+button:hover{
+    cursor: pointer;
+}
+
 
 #todo{
     position: relative;
@@ -84,8 +88,8 @@ h1{
 
 #todo textarea::placeholder{
     position: absolute;
-    bottom: 5px;
-    left: 5px;
+    top: 10px;
+    left: 10px;
 }
 
 
