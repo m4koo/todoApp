@@ -6,6 +6,10 @@
     --white: rgb(238, 238, 238);
 }
 
+.hidden{
+    display:  none;
+}
+
 body{
     margin: 0;
     background-color: var(--dark-gray);
@@ -92,12 +96,16 @@ button:hover{
     left: 10px;
 }
 
-
+#requiredText{
+    position: absolute;
+    bottom: -30px;
+    font-size: 12px;
+}
 
 /* LIST ITEMS */
 
 #list{
-    padding: 50px;
+    padding: 50px 50px 0 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -157,17 +165,20 @@ h2{
     outline: none;  
 }
 
-@media (max-width: 540px){
+@media (max-width: 650px){
+    #list{
+        padding: 50px 0 0 0;
+    }
+}
+@media (max-width: 600px){
+    .container{
+        max-width: 80vw;
+    }
     #todo form{
-        width: 350px;
+        width: 80vw;
     }
 }
 
-@media (max-width: 380px){
-    #todo form{
-        width: 250px;
-    }
-}
 
 
 @font-face {

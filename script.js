@@ -11,10 +11,15 @@ function render(){
 function addNote(){
     let title = document.getElementById('title');
     let note = document.getElementById('note');
+    let requiredText = document.getElementById('requiredText');
 
-    if(note.value <= 0 && title.value <= 0){
+    if(note.value <= 0 || title.value <= 0){
+        if (requiredText.classList.contains('hidden')){
+            requiredText.classList.remove('hidden');
+        }
         return;
     }else{
+        requiredText.classList.add('hidden')
         titles.push(title.value);
         notes.push(note.value);
     
@@ -32,7 +37,7 @@ function loadNotes(){
     for(let i = 0; i < notes.length; i++){
         list.innerHTML +=`
         <div class="container" id="item${i}">
-            ${titles[i]==''?'':'<h2 contenteditable="false" spellcheck="false">' + titles[i] + '</h2>'}
+            <h2 contenteditable="false" spellcheck="false"> ${titles[i]} </h2>
             <span contenteditable="false" spellcheck="false">${notes[i]}</span>
             <div class="buttons">
                 <button onclick="edit(${i})" id="btn${i}">Edit</button>
@@ -42,7 +47,7 @@ function loadNotes(){
         `
     }
 }
-
+// ${titles[i]==''?'':'<h2 contenteditable="false" spellcheck="false">' + titles[i] + '</h2>'} incase for titleless notes
 
 function remove(i) {
     titles.splice(i, 1);
@@ -62,7 +67,6 @@ function edit(i) {
         title.contentEditable = "true";
     }
     note.contentEditable = "true";
-
     noteFocus(note);
 }
 
