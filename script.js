@@ -14,15 +14,13 @@ function addNote(){
     let requiredText = document.getElementById('requiredText');
 
     if(note.value <= 0 || title.value <= 0){
-        if (requiredText.classList.contains('hidden')){
-            requiredText.classList.remove('hidden');
-        }
+        requiredText.innerHTML = 'Bitte Titel und Notiz ausfüllen!'
         return;
     }else{
-        requiredText.classList.add('hidden')
         titles.push(title.value);
         notes.push(note.value);
-    
+        
+        requiredText.innerHTML = '';
         note.value = '';
         title.value = '';
     }
